@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Yue Cong's Resume</title>
+	<style>
+		.basic_info {
+			width: 100%;
+			float:left;
+			clear:both;
+		}
+		.sec {
+			width: 100%;
+			display:block;
+			clear:both;
+		}
+		.sec_header {
+			width: 100%;
+			font-weight: bold;
+			font-size: 18px;
+			border-bottom: 2px solid gray;
+			font-family: "Verdana";
+			padding-top:10px;
+			padding-bottom: 10px;
+		}
+		.item {
+			width: 100%;
+			float: left;
+			clear: both;
+		}
+		.item_header {
+			width: 100%;
+			float: left;
+			clear: both;
+			font-size: 14px;
+		}
+		.item_detail {
+			clear: both;
+			width: 600px;
+			text-align: justify;
+		}
+		.left {
+			float: left;
+		}
+		.middle {
+			width: 100%;
+			text-align: center;
+		}
+		.right {
+			float: right;
+		}
+		.portrait {
+			height: 120px;
+		}
+		html {
+			font-family: "Calibri";
+		}
+		h4 {
+			font-family: "Arial";
+			margin-top:10px;
+			margin-bottom:8px;
+			font-size:14px;
+		}
+		p {
+			margin:0px;
+		}
+		ul {
+			margin-top:0px;
+			margin-bottom:5px;
+		}
+		a:link {
+			text-decoration: none;
+		}
+
+		a:visited {
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		a:active {
+			text-decoration: underline;
+		}
+		li {
+			padding-top:5px;
+			padding-bottom: 5px;
+		}
+		@media print{
+			@page {
+			   size: A4;
+			   margin: 1cm 1cm 1cm 1cm;
+			}
+			footer {page-break-after: always;}
+			#Header, #Footer { display: none !important; }
+		}
+	</style>
+</head>
+<body>
+	<div class="basic_info">
+		<div class="left" style="width: 0px;">
+			<img src="./nus_logo.jpg" class="portrait"/>
+		</div>
+		<div class="middle">
+			<h2><font face="verdana"><b>Yue Cong</b></font></h2>
+			<span><a href="mailto:yuecong@u.nus.edu">yuecong@u.nus.edu</a> | (+65) 84558346 | Permanent Resident</span>
+		</div>
+	</div>
+	<div class="sec">
+		<div class="sec_header">Education</div>
+		<div class="item">
+			<div class="item_header">
+				<div class="left"><h4>Ph.D. in Computer Science</h4></div>
+				<div class="right"><h4>Jan 18 &#8212; June 2024</h4></div>
+			</div>
+			<div class="item_detail">
+				<ul>
+					<li>School of Computing, National University of Singapore</li>
+					<li>Research Interest: database system, data security </li>
+					<li>CAP: 4.58/5.0</li>
+				</ul>
+			</div>
+		</div>
+		<div class="item">
+			<div class="item_header">
+				<div class="left"><h4>Bachelor of Science (Honours) in Computer Sciences</h4></div>
+				<div class="right"><h4>Aug 09 &#8212; May 13</h4></div>
+			</div>
+			<div class="item_detail">
+				<ul>
+					<li>School of Computing, National University of Singapore</li>
+					<li>CAP: 4.2/5.0 Second Class (Upper) Honours</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="sec">
+		<div class="sec_header">Work Experience</div>
+		<div class="item">
+			<div class="item_header">
+				<div class="left"><h4>Ph.D, Department of Computer Science, National University of Singapore</h4></div>
+				<div class="right"><h4>Jan 18 &#8212; Present</h4></div>
+			</div>
+			<div class="item_detail">
+				Indexing for Immutable Data
+				<ul>
+					<li>Targeted on a class of efficient and tamper-evident index structures, called Structurally Invariant and Reusable Indexes (SIRI).</li>
+					<li>Identified existing representatives in the literature and applications, e.g., Blockchains.</li>
+					<li>Conducted a comprehensive analysis on the structures theoretically and experimentally.</li>
+					<li>Published 1 paper in SIGMOD</li>
+				</ul>
+				Ledger Database
+				<ul>
+					<li>Presented the design space for distributed verifiable ledger databases, consisting of security, performance, and abstraction.</li>
+					<li>Designed and implemented GlassDB, an efficient distributed verifiable ledger database system that supports transactions, and provides efficient verifiability, with strong security guarantee.</li>
+					<li>Designed new benchmarks for evaluating and comparing verifiable ledger databases by extending YCSB and TPC-C.</li>
+					<li>4 papers published in VLDB and SIGMOD</li>
+				</ul>
+				ForkBase
+				<ul>
+					<li>Maintained ForkBase database system. </li>
+					<li>Design and developed distributed fault-tolerant ForkBase, which supports high scalability and usability.</li>
+					<li>Submitted 1 paper</li>
+				</ul>
+			</div>
+		</div>
+		<div class="item">
+			<div class="item_header">
+				<div class="left"><h4>Software Engineer, Works Applications</h4></div>
+				<div class="right"><h4>Oct 13 &#8212; Nov 17</h4></div>
+			</div>
+			<div class="item_detail">
+				<ul>
+					<li>Full-stack web application developer responsible for database design, back-end and
+					front-end development and testing</li>
+					<li>Being development leader of 8 people, responsible for task management, customer
+					requirement analysis and team coordination</li>
+					<li>Designed and developed EC system of ERP packages using spring framework, cassandra
+					and google closure</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="sec">
+		<div class="sec_header">Professional Skills</div>
+		<div class="item">
+			<div class="item_detail">
+				<ul>
+					<li>Language Proficiency: English, Mandarin</li>
+					<li>Programming Skills: Java, C/C++, Python, SQL, Javascript, JQuery, AngularJS, HTML, PHP</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="sec">
+		<div class="sec_header">Selected Publications</div>
+		<div class="item">
+			<div class="item_detail">
+				<ul>
+					<li>B. C. Ooi, S. Cai, G. Chen, S. Shen, K. L. Tan, Y. Wu, X. Xiao, N. Xing, C. Yue, L. Zeng, M. Zhang and Z. Zhao. NeurDB: an AI-powered autonomous data system. Science China Information Sciences, 2024.</li>
+					<li>X. Yang, <b>C. Yue</b>, W. Zhang, Y. Liu, B. C. Ooi and J. Chen. SecuDB: An In-enclave Privacy-preserving and Tamper-resistant Relational Database. VLDB, 2024.</li>
+					<li><b>C. Yue</b>, T. Dinh, Z. Xie, M. Zhang, G. Chen and B. C. Ooi. GlassDB: An Efficient Verifiable Ledger Database System Through Transparency. VLDB, 2023.</li>
+					<li><b>C. Yue</b>, M. Zhang, C. Zhu, G. Chen, D. Loghin and B. C. Ooi. VeriBench: Analyzing the Performance of Database Systems with Verifiability. VLDB, 2023.</li>
+					<li>X. Yang, Ruide Zhang, <b>C. Yue</b>, Y. Liu, B. C. Ooi, Q. Gao, Y. Zhang and H. Yang. VeDB: A Software and Hardware Enabled Trusted Relational Database. SIGMOD, 2023.</li>
+					<li>H. Gao, <b>C. Yue</b>, T. Dinh, Z. Huang, B. C. Ooi. Enabling Secure and Efficient Data Analytics Pipeline Evolution with Trusted Execution Environment. VLDB, 2023.</li>
+					<li><b>C. Yue</b>, Z. Xie, M. Zhang, G. Chen, B. C. Ooi, S. Wang, and X. Xiao. Analysis of Indexing Structures for Immutable Data. SIGMOD, 2020.</li>
+					<li>M. Zhang, Z. Xie, <b>C. Yue</b>, and Z. Zhong. Spitz: A Verifiable Database System. VLDB, 2020</li>
+					<li>Z. Xie, H. Ying, <b>C. Yue</b>, M. Zhang, G. Chen and B. C. Ooi. Cool: a COhort OnLine analytical processing system. ICDE, 2020.</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
