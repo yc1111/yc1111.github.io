@@ -3,70 +3,118 @@
 <head>
 	<title>Yue Cong's Resume</title>
 	<style>
-		.basic_info {
+		.highlight {
+			color: #153D63;
+		}
+		.newline {
+			display: block;
+		}
+		.oneline {
+			display: inline-block;
+		}
+		.lgap {
+			margin-top: 15px !important;
+		}
+		.mgap {
+			margin-top: 10px !important;
+		}
+		.sgap {
+			margin-top: 5px !important;
+		}
+		.large {
+			font-size: 28pt;
+		}
+		.medium {
+			font-size: 12pt;
+		}
+		.small {
+			font-size: 10pt;
+		}
+		.xsmall {
+			font-size: 9pt;
+		}
+		.separator {
 			width: 100%;
-			float:left;
-			clear:both;
+			height: 0px;
+			border: 1px solid #153D63;
+		}
+		.A4 {
+			width: 210mm;
+			margin: auto;
+		}
+		.main {
+			width: 96%;
+			margin: auto;
+		}
+		.basic_info {
+			margin-top: 20px;
+			display: block;
+			overflow: hidden;
 		}
 		.sec {
-			width: 100%;
 			display:block;
-			clear:both;
 		}
 		.sec_header {
-			width: 100%;
+			width: 133px;
 			font-weight: bold;
-			font-size: 18px;
-			border-bottom: 2px solid gray;
-			font-family: "Verdana";
-			padding-top:10px;
-			padding-bottom: 10px;
+			vertical-align: top;
+			display: inline-block;
+			color: #153D63;
+			font-size: 12pt;
+		}
+		.sec_body {
+			width: 625px;
+			vertical-align: top;
+			display: inline-block;
 		}
 		.item {
 			width: 100%;
-			float: left;
-			clear: both;
+			display: block;
+			overflow: hidden;
+			text-align: justify;
 		}
 		.item_header {
 			width: 100%;
-			float: left;
+			font-weight: bold;
+			display: block;
 			clear: both;
-			font-size: 14px;
 		}
 		.item_detail {
+			width: 100%;
+			display: block;
 			clear: both;
-			width: 600px;
-			text-align: justify;
+			line-height: 150%;
+			overflow: hidden;
 		}
 		.left {
 			float: left;
 		}
-		.middle {
-			width: 100%;
-			text-align: center;
-		}
 		.right {
 			float: right;
 		}
-		.portrait {
-			height: 120px;
+		.circle-bullet {
+			list-style-type: circle;
 		}
 		html {
-			font-family: "Calibri";
+			font-family: Arial, sans-serif;
+			font-size: 9pt;
 		}
-		h4 {
-			font-family: "Arial";
-			margin-top:10px;
-			margin-bottom:8px;
-			font-size:14px;
-		}
-		p {
-			margin:0px;
+		div {
+			vertical-align: middle;
 		}
 		ul {
 			margin-top:0px;
 			margin-bottom:5px;
+			padding-left:20px;
 		}
+		li {
+			padding-bottom: 5px;
+			padding-left: 0px;
+		}
+		li::marker {
+			font-size: 20px;
+		}
+
 		a:link {
 			text-decoration: none;
 		}
@@ -82,133 +130,200 @@
 		a:active {
 			text-decoration: underline;
 		}
-		li {
-			padding-top:5px;
-			padding-bottom: 5px;
+		#portrait {
+			border-radius: 50%;
+			border: 2px solid #153D63;
 		}
-		@media print{
-			@page {
-			   size: A4;
-			   margin: 1cm 1cm 1cm 1cm;
+
+		footer {
+			content: counter(page);
+			position: fixed;
+			bottom: 0;
+		}
+		@page {
+			size: A4;
+			margin: 0;
+			counter-increment: page;
+			@bottom-center {
+				content: "Page " counter(page) " of " counter(pages);
 			}
-			footer {page-break-after: always;}
-			#Header, #Footer { display: none !important; }
+		}
+
+		@media print{
+			@bottom-left {
+				content: counter(page) "/" counter(pages);
+			}
+			html, body {
+				width: 210mm;
+				height: 297mm;
+			}
+			.pagebreak { page-break-before: always; }
 		}
 	</style>
 </head>
 <body>
-	<div class="basic_info">
-		<div class="left" style="width: 0px;">
-			<img src="./nus_logo.jpg" class="portrait"/>
-		</div>
-		<div class="middle">
-			<h2><font face="verdana"><b>Yue Cong</b></font></h2>
-			<span><a href="mailto:yuecong@u.nus.edu">yuecong@u.nus.edu</a> | (+65) 84558346 | Permanent Resident</span>
-		</div>
-	</div>
-	<div class="sec">
-		<div class="sec_header">Education</div>
-		<div class="item">
-			<div class="item_header">
-				<div class="left"><h4>Ph.D. in Computer Science</h4></div>
-				<div class="right"><h4>Jan 18 &#8212; June 2024</h4></div>
+	<div class="A4">
+	<div class="basic_info main">
+		<img id="portrait" src="portrait.jpg" width="170" height="170" class="left"/>
+		<div class="left" style="margin-left: 100px;">
+			<span class="highlight newline large">CONG <b>YUE</b></span>
+			<span class="highlight newline medium sgap"><i>Research Interest: Database System</i> | <i><b>Singapore PR</b></i></span>
+			
+			<div class="lgap" style="height: 25px;">
+				<img src="ico-mail.svg" style="height: 100%; vertical-align: middle;" />
+				<div class="oneline" style="margin-left: 20px;"><a href="mailto:yuecongg@gmail.com" style="color: black;">yuecongg@gmail.com</a></div>
 			</div>
-			<div class="item_detail">
-				<ul>
-					<li>School of Computing, National University of Singapore</li>
-					<li>Research Interest: database system, data security </li>
-					<li>CAP: 4.58/5.0</li>
-				</ul>
+			<div class="sgap" style="height: 25px;">
+				<img src="ico-mobile.svg" style="height: 100%; vertical-align: middle;" />
+				<div class="oneline" style="margin-left: 20px;">(+65) 84558346</div>
 			</div>
-		</div>
-		<div class="item">
-			<div class="item_header">
-				<div class="left"><h4>Bachelor of Science (Honours) in Computer Sciences</h4></div>
-				<div class="right"><h4>Aug 09 &#8212; May 13</h4></div>
-			</div>
-			<div class="item_detail">
-				<ul>
-					<li>School of Computing, National University of Singapore</li>
-					<li>CAP: 4.2/5.0 Second Class (Upper) Honours</li>
-				</ul>
+			<div class="sgap" style="height: 25px;">
+				<img src="ico-addr.svg" style="height: 100%; vertical-align: middle;" />
+				<div class="oneline" style="margin-left: 20px;">Blk 52 Strathmore Avenue, Singapore 141052</div>
 			</div>
 		</div>
 	</div>
-	<div class="sec">
-		<div class="sec_header">Work Experience</div>
-		<div class="item">
-			<div class="item_header">
-				<div class="left"><h4>Ph.D, Department of Computer Science, National University of Singapore</h4></div>
-				<div class="right"><h4>Jan 18 &#8212; Present</h4></div>
+	<div class="separator lgap"></div>
+	<div class="main sec lgap">
+		<div class="sec_header medium">EDUCATION</div>
+		<div class="sec_body">
+			<div class="item">
+				<div class="item_header">
+					<div class="left">Ph.D. in Computer Science</div>
+					<div class="right">Singapore</div>
+				</div>
+				<div class="item_detail">
+					<div class="left">National University of Singapore, CAP: 4.58/5.0</div>
+					<div class="right">Jan 2018 - Jun 2024</div>
+				</div>
 			</div>
-			<div class="item_detail">
-				Indexing for Immutable Data
-				<ul>
-					<li>Targeted on a class of efficient and tamper-evident index structures, called Structurally Invariant and Reusable Indexes (SIRI).</li>
-					<li>Identified existing representatives in the literature and applications, e.g., Blockchains.</li>
-					<li>Conducted a comprehensive analysis on the structures theoretically and experimentally.</li>
-					<li>Published 1 paper in SIGMOD</li>
-				</ul>
-				Ledger Database
-				<ul>
-					<li>Presented the design space for distributed verifiable ledger databases, consisting of security, performance, and abstraction.</li>
-					<li>Designed and implemented GlassDB, an efficient distributed verifiable ledger database system that supports transactions, and provides efficient verifiability, with strong security guarantee.</li>
-					<li>Designed new benchmarks for evaluating and comparing verifiable ledger databases by extending YCSB and TPC-C.</li>
-					<li>4 papers published in VLDB and SIGMOD</li>
-				</ul>
-				ForkBase
-				<ul>
-					<li>Maintained ForkBase database system. </li>
-					<li>Design and developed distributed fault-tolerant ForkBase, which supports high scalability and usability.</li>
-					<li>Submitted 1 paper</li>
-				</ul>
-			</div>
-		</div>
-		<div class="item">
-			<div class="item_header">
-				<div class="left"><h4>Software Engineer, Works Applications</h4></div>
-				<div class="right"><h4>Oct 13 &#8212; Nov 17</h4></div>
-			</div>
-			<div class="item_detail">
-				<ul>
-					<li>Full-stack web application developer responsible for database design, back-end and
-					front-end development and testing</li>
-					<li>Being development leader of 8 people, responsible for task management, customer
-					requirement analysis and team coordination</li>
-					<li>Designed and developed EC system of ERP packages using spring framework, cassandra
-					and google closure</li>
-				</ul>
+			<div class="item mgap">
+				<div class="item_header">
+					<div class="left">Bachelor of Science (Honours) in Computer Sciences</div>
+					<div class="right">Singapore</div>
+				</div>
+				<div class="item_detail">
+					<div class="left">National University of Singapore, CAP: 4.2/5.0</div>
+					<div class="right">Aug 2009 - Jun 2013</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="sec">
-		<div class="sec_header">Professional Skills</div>
-		<div class="item">
-			<div class="item_detail">
-				<ul>
-					<li>Language Proficiency: English, Mandarin</li>
-					<li>Programming Skills: Java, C/C++, Python, SQL, Javascript, JQuery, AngularJS, HTML, PHP</li>
-				</ul>
+	<div class="separator lgap"></div>
+	<div class="main sec lgap">
+		<div class="sec_header medium">WORK EXPERIENCE</div>
+		<div class="sec_body">
+			<div class="item">
+				<div class="item_header">
+					<div class="left small">Research Fellow, National University of Singapore</div>
+					<div class="right small">Mar 2024 - Present</div>
+				</div>
+				<div class="item_detail">
+					<ul class="sgap">
+						<li>Research interest: database systems, data security, federated learning, blockchain.</li>
+						<li>Projects: ESG, DataS, NeurDB
+					</ul>
+				</div>
+			</div>
+			<div class="item">
+				<div class="item_header">
+					<div class="left small">Ph.D, Department of Computer Science, National University of Singapore</div>
+					<div class="right small">Jan 2018 - June 2024</div>
+				</div>
+				<div class="item_detail">
+					<div class="sgap"><i>Indexing for Immutable Data</i></div>
+					<ul class="sgap">
+						<li>Targeted on a class of efficient and tamper-evident index structures, called Structurally Invariant and Reusable Indexes (SIRI).</li>
+						<li>Identified existing representatives in the literature and applications, e.g., Blockchains.</li>
+						<li>Conducted a comprehensive analysis on the structures theoretically and experimentally.</li>
+						<li>Published 1 paper in SIGMOD</li>
+					</ul>
+					<div class="sgap"><i>Ledger Database</i></div>
+					<ul class="sgap">
+						<li>Presented the design space for distributed verifiable ledger databases, consisting of security, performance, and abstraction.</li>
+						<li>Designed and implemented GlassDB, an efficient distributed verifiable ledger database system that supports transactions, and provides efficient verifiability, with strong security guarantee.</li>
+						<li>Designed new benchmarks for evaluating and comparing verifiable ledger databases by extending YCSB and TPC-C.</li>
+						<li>4 papers published in VLDB and SIGMOD</li>
+					</ul>
+					<div class="sgap"><i>ForkBase</i></div>
+					<ul class="sgap">
+						<li>Maintained ForkBase database system. </li>
+						<li>Design and developed distributed fault-tolerant ForkBase, which supports high scalability and usability.</li>
+						<li>Submitted 1 paper</li>
+					</ul>
+				</div>
+			</div>
+			<div class="item">
+				<div class="item_header">
+					<div class="left small">Software Engineer, Works Applications</div>
+					<div class="right small">Oct 2013 - Nov 2017</div>
+				</div>
+				<div class="item_detail">
+					<ul class="sgap">
+						<li>Full-stack web application developer responsible for database design, back-end and
+						front-end development and testing</li>
+						<li>Being development leader of 8 people, responsible for task management, customer
+						requirement analysis and team coordination</li>
+						<li>Designed and developed EC system of ERP packages using spring framework, cassandra
+						and google closure</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="sec">
-		<div class="sec_header">Selected Publications</div>
-		<div class="item">
-			<div class="item_detail">
-				<ul>
-					<li>B. C. Ooi, S. Cai, G. Chen, S. Shen, K. L. Tan, Y. Wu, X. Xiao, N. Xing, C. Yue, L. Zeng, M. Zhang and Z. Zhao. NeurDB: an AI-powered autonomous data system. Science China Information Sciences, 2024.</li>
-					<li>X. Yang, <b>C. Yue</b>, W. Zhang, Y. Liu, B. C. Ooi and J. Chen. SecuDB: An In-enclave Privacy-preserving and Tamper-resistant Relational Database. VLDB, 2024.</li>
-					<li><b>C. Yue</b>, T. Dinh, Z. Xie, M. Zhang, G. Chen and B. C. Ooi. GlassDB: An Efficient Verifiable Ledger Database System Through Transparency. VLDB, 2023.</li>
-					<li><b>C. Yue</b>, M. Zhang, C. Zhu, G. Chen, D. Loghin and B. C. Ooi. VeriBench: Analyzing the Performance of Database Systems with Verifiability. VLDB, 2023.</li>
-					<li>X. Yang, Ruide Zhang, <b>C. Yue</b>, Y. Liu, B. C. Ooi, Q. Gao, Y. Zhang and H. Yang. VeDB: A Software and Hardware Enabled Trusted Relational Database. SIGMOD, 2023.</li>
-					<li>H. Gao, <b>C. Yue</b>, T. Dinh, Z. Huang, B. C. Ooi. Enabling Secure and Efficient Data Analytics Pipeline Evolution with Trusted Execution Environment. VLDB, 2023.</li>
-					<li><b>C. Yue</b>, Z. Xie, M. Zhang, G. Chen, B. C. Ooi, S. Wang, and X. Xiao. Analysis of Indexing Structures for Immutable Data. SIGMOD, 2020.</li>
-					<li>M. Zhang, Z. Xie, <b>C. Yue</b>, and Z. Zhong. Spitz: A Verifiable Database System. VLDB, 2020</li>
-					<li>Z. Xie, H. Ying, <b>C. Yue</b>, M. Zhang, G. Chen and B. C. Ooi. Cool: a COhort OnLine analytical processing system. ICDE, 2020.</li>
-				</ul>
+	<div class="separator lgap"></div>
+	<div class="main sec lgap">
+		<div class="sec_header medium">SELECTED PUBLICATIONS</div>
+		<div class="sec_body">
+			<div class="item">
+				<div class="item_detail">
+					<ul>
+						<li>B. C. Ooi, S. Cai, G. Chen, S. Shen, K. L. Tan, Y. Wu, X. Xiao, N. Xing, <b>C. Yue</b>, L. Zeng, M. Zhang and Z. Zhao. NeurDB: an AI-powered autonomous data system. Science China Information Sciences, 2024.</li>
+						<li>X. Yang, <b>C. Yue</b>, W. Zhang, Y. Liu, B. C. Ooi and J. Chen. SecuDB: An In-enclave Privacy-preserving and Tamper-resistant Relational Database. VLDB, 2024.</li>
+						<li><b>C. Yue</b>, T. Dinh, Z. Xie, M. Zhang, G. Chen and B. C. Ooi. GlassDB: An Efficient Verifiable Ledger Database System Through Transparency. VLDB, 2023.</li>
+						<li><b>C. Yue</b>, M. Zhang, C. Zhu, G. Chen, D. Loghin and B. C. Ooi. VeriBench: Analyzing the Performance of Database Systems with Verifiability. VLDB, 2023.</li>
+						<li>X. Yang, Ruide Zhang, <b>C. Yue</b>, Y. Liu, B. C. Ooi, Q. Gao, Y. Zhang and H. Yang. VeDB: A Software and Hardware Enabled Trusted Relational Database. SIGMOD, 2023.</li>
+						<li>H. Gao, <b>C. Yue</b>, T. Dinh, Z. Huang, B. C. Ooi. Enabling Secure and Efficient Data Analytics Pipeline Evolution with Trusted Execution Environment. VLDB, 2023.</li>
+						<li><b>C. Yue</b>, Z. Xie, M. Zhang, G. Chen, B. C. Ooi, S. Wang, and X. Xiao. Analysis of Indexing Structures for Immutable Data. SIGMOD, 2020.</li>
+						<li>M. Zhang, Z. Xie, <b>C. Yue</b>, and Z. Zhong. Spitz: A Verifiable Database System. VLDB, 2020</li>
+						<li>Z. Xie, H. Ying, <b>C. Yue</b>, M. Zhang, G. Chen and B. C. Ooi. Cool: a COhort OnLine analytical processing system. ICDE, 2020.</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
+	<div class="separator"></div>
+	<div class="main sec lgap">
+		<div class="sec_header medium"> AWARDS </div>
+		<div class="sec_body">
+			<div class="item">
+				<div class="item_detail">
+					<div class="left">Ressearch Achievement Award</div>
+					<div class="right">2020, 2021</div>
+				</div>
+				<div class="item_detail sgap">
+					<div class="left">Dean's Graduate Research Excellence Award</div>
+					<div class="right">2023</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="separator lgap"></div>
+	<div class="main sec lgap">
+		<div class="sec_header medium">SKILLS</div>
+		<div class="sec_body">
+			<div class="item">
+				<div class="item_detail">
+					<div class="left">
+						<ul>
+							<li>Language Proficiency: English, Mandarin</li>
+							<li>Programming Skills: Java, C/C++, Python, SQL, Javascript, JQuery, AngularJS, HTML, PHP</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
 </html>
