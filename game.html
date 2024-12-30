@@ -1,0 +1,311 @@
+<html>
+
+<header>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css">
+        .cards {
+            height: 120px;
+            width: 80px;
+            position: absolute;
+        }
+
+        a {
+            color: blue;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            cursor: pointer;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+
+        html {
+            font-size: 20px;
+        }
+
+        button {
+            font-size: 20px;
+        }
+
+
+    </style>
+</header>
+
+<body onload="init()">
+    <button id="0" level="0" idx="0" onclick="checkCondition(this)" class="cards" disabled></button><br />
+    <button id="1" level="1" idx="0" onclick="checkCondition(this)" class="cards" disabled></button>
+    <button id="2" level="1" idx="1" onclick="checkCondition(this)" class="cards" disabled></button><br />
+    <button id="3" level="2" idx="0" onclick="checkCondition(this)" class="cards" disabled></button>
+    <button id="4" level="2" idx="1" onclick="checkCondition(this)" class="cards" disabled></button>
+    <button id="5" level="2" idx="2" onclick="checkCondition(this)" class="cards" disabled></button><br />
+    <button id="6" level="3" idx="0" onclick="checkCondition(this)" class="cards" disabled></button>
+    <button id="7" level="3" idx="1" onclick="checkCondition(this)" class="cards" disabled></button>
+    <button id="8" level="3" idx="2" onclick="checkCondition(this)" class="cards" disabled></button>
+    <button id="9" level="3" idx="3" onclick="checkCondition(this)" class="cards" disabled></button><br />
+    <button id="10" level="4" idx="0" onclick="checkCondition(this)" class="cards" disabled></button>
+    <button id="11" level="4" idx="1" onclick="checkCondition(this)" class="cards" disabled></button>
+    <button id="12" level="4" idx="2" onclick="checkCondition(this)" class="cards" disabled></button>
+    <button id="13" level="4" idx="3" onclick="checkCondition(this)" class="cards" disabled></button>
+    <button id="14" level="4" idx="4" onclick="checkCondition(this)" class="cards" disabled></button><br />
+    <button id="15" level="5" idx="0" onclick="checkCondition(this)" class="cards" disabled></button>
+    <button id="16" level="5" idx="1" onclick="checkCondition(this)" class="cards" disabled></button>
+    <button id="17" level="5" idx="2" onclick="checkCondition(this)" class="cards" disabled></button>
+    <button id="18" level="5" idx="3" onclick="checkCondition(this)" class="cards" disabled></button>
+    <button id="19" level="5" idx="4" onclick="checkCondition(this)" class="cards" disabled></button>
+    <button id="20" level="5" idx="5" onclick="checkCondition(this)" class="cards" disabled></button><br />
+    <button id="21" level="6" idx="0" onclick="checkCondition(this)" class="cards"></button>
+    <button id="22" level="6" idx="1" onclick="checkCondition(this)" class="cards"></button>
+    <button id="23" level="6" idx="2" onclick="checkCondition(this)" class="cards"></button>
+    <button id="24" level="6" idx="3" onclick="checkCondition(this)" class="cards"></button>
+    <button id="25" level="6" idx="4" onclick="checkCondition(this)" class="cards"></button>
+    <button id="26" level="6" idx="5" onclick="checkCondition(this)" class="cards"></button>
+    <button id="27" level="6" idx="6" onclick="checkCondition(this)" class="cards"></button>
+    <div style="width:100%;">
+        <div>
+            <button id="top" onclick="checkCondition(this)" class="cards" style="top: 600px;"></button><br />
+            <a id="server" onclick="serveCard()" style="position: absolute; top: 720px;">下一张</a>
+            <div style="position: absolute; top: 750px;">还剩<span id="rest"></span>张</div>
+        </div>
+        <div id="sub">
+        </div>
+    </div>
+    <script>
+        var total = 54;
+        var stack = [];
+        var queue_no = 0;
+        var queue_cnt = 0;
+        var pos = 0;
+        var selected = false;
+        var selectval = 0;
+        var selectid = "";
+
+
+        function setDisplay(val) {
+            var display = "";
+            if (val == 53) {
+                display = "<font color='red'>Joker</font>";
+            } else if (val == 52) {
+                display = "<font color='black'>Joker";
+            } else {
+                var color = Math.floor(val / 13);
+                if (color == 0) {
+                    display = "<font color='black'>&#9824 ";
+                } else if (color == 1) {
+                    display = "<font color='black'>&#9827 ";
+                } else if (color == 2) {
+                    display = "<font color='red'>&#9829 ";
+                } else if (color == 3) {
+                    display = "<font color='red'>&#9830 ";
+                } else {
+                    display = color;
+                }
+                display += val % 13 + 1 == 1? "A" : (val % 13 + 1 < 11? val % 13 + 1 : (val % 13 + 1 == 11? "J" : (val % 13 + 1 == 12? "Q" : "K"))) + "</font>";
+            }
+            return display;
+        }
+
+        function init() {
+            var center = window.innerWidth / 2;
+            for (var i = 0; i < total; i++) {
+                stack[i] = i;
+            }
+            console.log(stack);
+
+            for (var i = 0; i < total; i++) {
+                var index = Math.floor(Math.random() * (total - i) + i);
+                temp = stack[index];
+                stack[index] = stack[i];
+                stack[i] = temp;
+            }
+            console.log(stack);
+            var i = 0;
+            for (var level = 1; level <= 7; level++) {
+                var offset = center - level * 40;
+                for (var j = 0; j < level; j++) {
+                    document.getElementById(i).style.left = offset + j * 80;
+                    document.getElementById(i).style.top = 60 * level;
+                    document.getElementById(i).value = stack[i];
+                    if (i >= 21) {
+                        document.getElementById(i).innerHTML = setDisplay(stack[i]);
+                    }
+                    i++;
+                }
+            }
+
+            pos = 28;
+            document.getElementById("top").value = stack[pos];
+            document.getElementById("top").innerHTML = setDisplay(stack[pos]);
+            document.getElementById("rest").innerHTML = 53 - pos;
+        }
+
+        function checkCondition(elem) {
+            if (!selected) {
+                if (elem.value == 53) {
+                    selectval = 14;
+                } else if (elem.value == 52) {
+                    selectval = -1;
+                } else {
+                    selectval = elem.value % 13 + 1;
+                }
+                if (selectval == 13) {
+                    action(elem);
+                    selectval = 0;
+                } else {
+                    selectid = elem.id;
+                    selected = true;
+                    elem.style.borderColor = "orange";
+                }
+            } else {
+                document.getElementById(selectid).style.borderColor = "buttonface";
+                var currval;
+                if (elem.value == 53) {
+                    currval = 14;
+                } else if (elem.value == 52) {
+                    currval = -1;
+                } else {
+                    currval = elem.value % 13 + 1;
+                }
+                if (currval == 13) {
+                    action(elem);
+                    selected = false;
+                    selectid = "";
+                    selectval = 0;
+                } else if (selectval + currval == 13) {
+                    action(elem);
+                    action(document.getElementById(selectid));
+                    selected = false;
+                    selectid = "";
+                    selectval = 0;
+                } else {
+                    selectid = elem.id;
+                    selectval = currval;
+                    elem.style.borderColor = "orange";
+                }
+            }
+            var win = true;
+            for (var i = 0; i < 28; i++) {
+                if (document.getElementById(i).style.display != "none") {
+                    win = false;
+                    break;
+                }
+            }
+            if (win) window.alert("Congratulations!!! You WIN!!!");
+        }
+
+        function action(elem) {
+            if (elem.id == "top") {
+                nextCard();
+            } else if (elem.id.substring(0, 5) == "queue") {
+                dequeue(elem);
+            } else {
+                flipCard(elem);
+            }
+        }
+
+        function flipCard(elem) {
+            elem.style.display = "none";
+            var currid = Number(elem.id);
+            var currlevel;
+            if (currid >= 21) currlevel = 7;
+            else if (currid >= 15) currlevel = 6;
+            else if (currid >= 10) currlevel = 5;
+            else if (currid >= 6) currlevel = 4;
+            else if (currid >= 3) currlevel = 3;
+            else if (currid >= 1) currlevel = 2;
+            else currlevel = 1;
+            var prev = document.getElementById(String(currid - 1));
+            if (!leftmost(currid) && prev && prev.style.display == "none") {
+                var parent = document.getElementById(currid - 1 - currlevel + 1);
+                parent.disabled = "";
+                parent.innerHTML = setDisplay(parent.value);
+            }
+            var next = document.getElementById(String(currid + 1));
+            if (!rightmost(currid) && next && next.style.display == "none") {
+                var parent = document.getElementById(currid - currlevel + 1);
+                parent.disabled = "";
+                parent.innerHTML = setDisplay(parent.value);            }
+        }
+
+        function nextCard() {
+            pos++;
+            var curr_card = document.getElementById("top");
+            curr_card.value = stack[pos];
+            curr_card.innerHTML = setDisplay(stack[pos]);
+            document.getElementById("rest").innerHTML = 53 - pos >= 0? 53 - pos : 0;
+            if (pos == 53) {
+                document.getElementById("server").style.display = "none";
+                var root = document.getElementById("0");
+                root.disabled = "";
+                root.innerHTML = setDisplay(root.value);
+
+                var root = document.getElementById("1");
+                root.disabled = "";
+                root.innerHTML = setDisplay(root.value);
+
+                var root = document.getElementById("2");
+                root.disabled = "";
+                root.innerHTML = setDisplay(root.value);
+            } else if (pos >= 54) {
+                document.getElementById("top").style.display = "none";
+            }
+            if (selectid == "top") {
+                selected = false;
+                selectid = "";
+                selectval = 0;
+                curr_card.style.borderColor = "buttonface";
+            }
+        }
+
+        function dequeue(elem) {
+            var curr_no = Number(elem.id.substring(5));
+            var prev_id = "queue" + (curr_no - 1);
+            var next_id = "queue" + (curr_no + 1);
+            if (document.getElementById(prev_id)) {
+                document.getElementById(prev_id).disabled = "";
+                queue_no--;
+            } else if (document.getElementById(next_id)) {
+                document.getElementById(next_id).disabled = "";
+                for (var id = curr_no + 1; id < queue_no; id++) {
+                    document.getElementById("queue" + id).style.left = (100 + (id - curr_no - 1) * 80) + "px";
+                }
+            }
+            elem.remove();
+            queue_cnt--;
+        }
+
+        function serveCard() {
+            var curr_card = document.getElementById("top");
+            var head = document.createElement("button");
+            head.value = curr_card.value;
+            head.innerHTML = curr_card.innerHTML;
+            head.setAttribute("class", "cards");
+            head.setAttribute("id", "queue" + queue_no);
+            head.setAttribute("onClick", "checkCondition(this)")
+            head.style.position = "absolute";
+            head.style.left = (100 + queue_cnt * 80) + "px";
+            head.style.top = "600px";
+            var queue = document.getElementById("sub");
+            queue.appendChild(head);
+            if (queue_cnt > 1) {
+                document.getElementById("queue" + (queue_no - 1)).disabled = "disabled";
+            }
+            queue_no++;
+            queue_cnt++;
+            nextCard();
+        }
+
+        function leftmost(idx) {
+            return (idx == 0 || idx == 1 || idx == 3 || idx == 6 || idx == 10 || idx == 15 || idx == 21);
+        }
+
+        function rightmost(idx) {
+            return (idx == 0 || idx == 2 || idx == 5 || idx == 9 || idx == 14 || idx == 20 || idx == 27);
+        }
+
+    </script>
+</body>
+
+</html>
