@@ -40,14 +40,14 @@
 		}
 		.A4 {
 			width: 210mm;
-			margin: auto;
+			margin: 0 auto;
+			box-sizing: border-box;
 		}
 		.main {
 			width: 96%;
 			margin: auto;
 		}
 		.basic_info {
-			margin-top: 20px;
 			display: block;
 			overflow: hidden;
 		}
@@ -96,8 +96,10 @@
 			list-style-type: circle;
 		}
 		html {
-			font-family: Arial, sans-serif;
-			font-size: 9pt;
+			margin: 0;
+			padding: 0;
+			font-family: Calibri, "Segoe UI", Arial, Helvetica, sans-serif;
+			font-size: 10pt;
 		}
 		div {
 			vertical-align: middle;
@@ -135,29 +137,17 @@
 			border: 2px solid #153D63;
 		}
 
-		footer {
-			content: counter(page);
-			position: fixed;
-			bottom: 0;
-		}
 		@page {
 			size: A4;
-			margin: 0;
-			counter-increment: page;
-			@bottom-center {
-				content: "Page " counter(page) " of " counter(pages);
-			}
+			margin: 8mm 5mm 15mm 5mm;
 		}
 
 		@media print{
-			@bottom-left {
-				content: counter(page) "/" counter(pages);
-			}
 			html, body {
-				width: 210mm;
-				height: 297mm;
+				width: auto;
+				height: auto !important;
 			}
-			.pagebreak { page-break-before: always; }
+			.A4 { margin: 0 !important; }
 		}
 	</style>
 </head>
@@ -321,7 +311,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="separator lgap"></div>
+	<div class="separator"></div>
 	<div class="main sec lgap">
 		<div class="sec_header medium">SELECTED PUBLICATIONS</div>
 		<div class="sec_body">
@@ -369,7 +359,7 @@
 					<div class="left">
 						<ul>
 							<li>Language Proficiency: English, Mandarin</li>
-							<li>Programming Skills: Java, C/C++, Python, SQL, Javascript, JQuery, AngularJS, HTML, PHP</li>
+							<li>Programming Skills: C/C++, Python, Java, SQL, NoSQL, NodeJS, React, JavaScript, HTML</li>
 						</ul>
 					</div>
 				</div>
