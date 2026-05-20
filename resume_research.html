@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cong Yue - Research Resume</title>
+    <style>
+      :root {
+        --ink: #111;
+        --muted: #5b616e;
+        --line: #d7dbe3;
+        --accent: #153d63;
+        --bg: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: #f4f6fb;
+        color: var(--ink);
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, "Noto Sans", "PingFang SC",
+          "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .btn {
+        padding: 10px 14px;
+        border-radius: 10px;
+        border: 1px solid transparent;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 800;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      /* A4 page */
+      .wrap {
+        max-width: 980px;
+        margin: 18px auto 40px;
+        padding: 0 14px;
+      }
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0 auto;
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(17, 17, 17, 0.08);
+        overflow: hidden;
+      }
+      .inner {
+        padding: 8mm 10mm 8mm;
+      }
+
+      /* Header */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding-bottom: 3mm;
+      }
+      .name {
+        margin: 0;
+        font-size: 30px;
+        font-weight: 900;
+        line-height: 1.05;
+        letter-spacing: 0.3px;
+      }
+      .headline {
+        margin-top: 6px;
+        font-size: 13px;
+        font-weight: 800;
+        color: var(--accent);
+        line-height: 1.3;
+      }
+      .tagline {
+        margin-top: 6px;
+        font-size: 11px;
+        color: var(--muted);
+        line-height: 1.45;
+        max-width: 560px;
+      }
+      .contact {
+        min-width: 250px;
+        text-align: right;
+        font-size: 10.5px;
+        color: var(--muted);
+        line-height: 1.55;
+        padding-top: 2px;
+      }
+      .contact a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+      .contact a:hover {
+        text-decoration: underline;
+      }
+      .chip {
+        display: inline-block;
+        padding: 2px 8px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        margin-top: 6px;
+        color: var(--accent);
+        font-weight: 800;
+        background: #fff;
+      }
+
+      /* Two columns */
+      .grid {
+        display: block;
+      }
+
+      /* Right sections */
+      .r-sec {
+        margin-bottom: 3mm;
+        padding-top: 3mm;
+        border-top: 1px solid var(--line);
+      }
+      .r-title {
+        margin: 0 0 8px 0;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        color: var(--accent);
+        text-transform: uppercase;
+      }
+      .summary {
+        margin: 0;
+        font-size: 11px;
+        line-height: 1.55;
+      }
+
+      .role {
+        padding: 5px 0;
+      }
+      .role:first-of-type {
+        border-top: none;
+        padding-top: 0;
+      }
+      .role-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10px;
+      }
+      .role-title {
+        margin: 0;
+        font-size: 12px;
+        font-weight: 900;
+        line-height: 1.25;
+      }
+      .role-meta {
+        font-size: 10.5px;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+      .role-sub {
+        margin-top: 4px;
+        font-size: 10.5px;
+        color: var(--muted);
+        line-height: 1.4;
+      }
+      .role ul {
+        margin: 6px 0 0 0;
+        padding-left: 18px;
+        font-size: 10.8px;
+        line-height: 1.5;
+      }
+      .role ul li {
+        margin: 2px 0;
+      }
+
+      .note {
+        font-size: 10.5px;
+        color: var(--muted);
+        line-height: 1.45;
+        margin-top: 6px;
+      }
+
+      /* Print */
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      @media print {
+        body {
+          background: #fff;
+        }
+        .wrap {
+          margin: 0;
+          padding: 0;
+        }
+        .page {
+          border: none;
+          border-radius: 0;
+          box-shadow: none;
+          width: 210mm;
+          min-height: 297mm;
+        }
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+        .page-break {
+          break-before: page;
+          margin-bottom: 5mm;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div class="page">
+        <div class="inner">
+          <!-- Header -->
+          <div class="header">
+            <div>
+              <h1 class="name">CONG YUE</h1>
+              <div class="headline">
+                Research Scientist / System Engineer / System Architect
+              </div>
+              <div class="tagline">
+                Distributed Systems · Database Systems · AI Infra · Vector DB
+              </div>
+            </div>
+            <div class="contact">
+              <div>
+                <a href="mailto:yuecongg@gmail.com">yuecongg@gmail.com</a>
+              </div>
+              <div><a href="tel:+6584558346">(+65) 84558346</a></div>
+              <div>20 Lower Kent Ridge Rd, Singapore 119080</div>
+              <div class="chip">Singapore PR</div>
+            </div>
+          </div>
+
+          <div class="grid">
+            <div class="r-sec">
+              <div class="r-title">Summary</div>
+              <p class="summary" style="text-align: justify">
+                Systems engineer and architect with 10+ years of experience
+                building high-performance database systems, AI infrastructure,
+                and secure data platforms. Proven track record of end-to-end
+                system ownership. Experienced in cross-functional collaboration
+                with industry partners and translating advanced DB techniques
+                into deployable systems.
+              </p>
+            </div>
+
+            <div class="r-sec">
+              <div class="r-title">Education</div>
+              <div class="role">
+                <div class="role-head">
+                  <p class="role-title">Ph.D. in Computer Science</p>
+                  <div class="role-meta">Singapore</div>
+                </div>
+                <div class="role-head">
+                  <p style="font-size: 12px; margin: 0">
+                    National University of Singapore, CAP: 4.58 / 5.0
+                  </p>
+                  <div class="role-meta">Jan 2018 - June 2024</div>
+                </div>
+              </div>
+              <div class="role">
+                <div class="role-head">
+                  <p class="role-title">
+                    Bachelor of Science (Honours) in Computer Sciences
+                  </p>
+                  <div class="role-meta">Singapore</div>
+                </div>
+                <div class="role-head">
+                  <p style="font-size: 12px; margin: 0">
+                    National University of Singapore, CAP: 4.2 / 5.0
+                  </p>
+                  <div class="role-meta">Aug 2009 - June 2013</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="r-sec">
+              <div class="r-title">Experience</div>
+
+              <div class="role">
+                <div class="role-head">
+                  <p class="role-title">
+                    Founder &amp; CEO, DataShare Pte. Ltd.
+                  </p>
+                  <div class="role-meta">Aug 2024 – Present</div>
+                </div>
+                <ul>
+                  <li>
+                    <b>Founded</b> a deep-tech startup building
+                    <b>secure data collaboration</b> and data assetization
+                    solutions, translating database research into deployable
+                    products.
+                  </li>
+                  <li>
+                    <b>Led</b> system architecture and early product roadmap
+                    across database engine, AI pipelines, and security
+                    mechanisms; balanced research innovation with engineering
+                    feasibility.
+                  </li>
+                  <li>
+                    Secured <b>SGD 250,000</b> pre-seed funding from
+                    <b>NUS GRIP</b> to support productization and market
+                    validation.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="role">
+                <div class="role-head">
+                  <p class="role-title">
+                    Research Fellow, National University of Singapore
+                  </p>
+                  <div class="role-meta">Mar 2024 – Present</div>
+                </div>
+                <ul>
+                  <li>
+                    <b>Led</b> an <b>AI + blockchain</b> ESG reporting platform;
+                    designed Ethereum-based verification for auditability and
+                    integrated LLM-driven report generation workflows
+                    (<b>LangGraph</b>).
+                  </li>
+
+                  <li>
+                    <b>Led</b> delivery of a blockchain-based Green Bond data
+                    platform with <b>Northern Trust</b> and <b>NUS</b>;
+                    <b>deployed</b> for NUS Green Bond issuance and recognized
+                    with the <b>International Innovation Award</b> (Enterprise
+                    Asia).
+                  </li>
+
+                  <li>
+                    Collaborated with <b>ByteDance</b> researchers on papers for
+                    <b>production-facing</b> secure &amp; verifiable database
+                    systems (<b>VeDB</b>, <b>SecuDB</b>), contributing to system
+                    design, evaluation methodology, and technical writing.
+                  </li>
+
+                  <li>
+                    <b>Led</b> a distributed collaboration database project;
+                    proposed a novel concurrency control mechanism and improved
+                    verifiable indexing, achieving up to <b>5×</b> throughput
+                    over OrpheusDB and <b>1.5×</b> over ForkBase under
+                    concurrent workloads.
+                  </li>
+
+                  <li>
+                    Contributed to the design of a
+                    <b>quantized vector database</b> with learning-based
+                    quantization tuning; delivered up to <b>16×</b> higher
+                    throughput than <b>Milvus/Weaviate/Cassandra</b> under
+                    concurrent read-write workloads.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="role">
+                <div class="role-head">
+                  <p class="role-title">
+                    Software Engineer, Works Applications
+                  </p>
+                  <div class="role-meta">Oct 2013 – Nov 2017</div>
+                </div>
+                <ul>
+                  <li>
+                    <b>Led</b> a team of <b>8 engineers</b> delivering
+                    enterprise web applications; owned task planning,
+                    requirements analysis, and cross-functional coordination.
+                  </li>
+
+                  <li>
+                    Built <b>full-stack</b> systems across database design,
+                    backend, frontend, and testing for
+                    <b>production</b> releases.
+                  </li>
+
+                  <li>
+                    Designed and developed ERP e-commerce modules using
+                    <b>Spring</b> and <b>Cassandra</b>.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="r-sec">
+              <div class="r-title">Selected Projects</div>
+
+              <div class="role">
+                <div class="role-head">
+                  <p class="role-title">HAKES - A Scalable Vector Database</p>
+                </div>
+                <ul>
+                  <li>
+                    Contributed to the architecture and implementation of HAKES,
+                    a partition-based, quantized vector database for large-scale
+                    similarity search.
+                  </li>
+                  <li>
+                    Proposed a learning-based quantization parameter tuning
+                    mechanism, achieving improved recall-performance trade-offs
+                    across diverse datasets.
+                  </li>
+                  <li>
+                    Achieved up to 16× throughput improvements under concurrent
+                    workloads.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="role">
+                <div class="role-head">
+                  <p class="role-title">
+                    NeurDB - AI-powered Autonomous Data System
+                  </p>
+                </div>
+                <ul>
+                  <li>
+                    Designed and developed NeurStore, an in-database model
+                    storage system of NeurDB
+                  </li>
+                  <li>
+                    Proposed similarity-aware tensor storage and quantized delta
+                    encoding, significantly reducing model storage footprint.
+                  </li>
+                  <li>
+                    Enabled pipeline model retrieval to streamline model serving
+                    process.
+                  </li>
+                  <li>
+                    Outperforming PostgresML, DuckDB, and ClickHouse by up to 5× higher model access throughput, up to 2× improvement in model storage efficiency, and achieved only 78% of the storage footprint.</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="page-break"></div>
+
+              <div class="role">
+                <div class="role-head">
+                  <p class="role-title">
+                    GlassDB - Distributed Ledger Database
+                  </p>
+                </div>
+                <ul>
+                  <li>
+                    Solely designed and implemented GlassDB, a high-performance
+                    distributed ledger database.
+                  </li>
+                  <li>
+                    Proposed novel ledger data structures that improve both
+                    security and transaction throughput.
+                  </li>
+                  <li>
+                    Designed a distributed architecture featuring transaction
+                    batching, asynchronous persistence, and deferred
+                    verification.
+                  </li>
+                  <li>
+                    Achieved performance improvements over QLDB, LedgerDB, SQL
+                    Ledger by up to 3.7x, 1.7x, 1.8x.
+                  </li>
+                  <li>Filed one Singapore patent, and one China patent.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="r-sec">
+              <div class="r-title">Publications</div>
+              <ul class="summary">
+                <li>
+                  S. Xiang, S. Wang, X. Xiao, <b>C. Yue</b>, Z. Zhao, B. C. Ooi.
+                  NeurStore: Efficient In-database Deep Learning Model
+                  Management System. SIGMOD, 2026. (Contact Author)
+                </li>
+                <li>
+                  G. Hu, S. Cai, T. Dinh, Z. Xie, <b>C. Yue</b>, G. Chen, B. C.
+                  Ooi. HAKES: Scalable Vector Database for Embedding Search
+                  Service. VLDB, 2025.
+                </li>
+                <li>
+                  B. C. Ooi, S. Cai, G. Chen, Y. Shen, K. L. Tan, Y. Wu, X.
+                  Xiao, N. Xing, <b>C. Yue</b>, L. Zeng, M. Zhang and Z. Zhao.
+                  NeurDB: an AI-powered autonomous data system. Science China
+                  Information Sciences, 2024.
+                </li>
+                <li>
+                  X. Yang, <b>C. Yue</b>, W. Zhang, Y. Liu, B. C. Ooi and J.
+                  Chen. SecuDB: An In-enclave Privacy-preserving and
+                  Tamper-resistant Relational Database. VLDB, 2024.
+                </li>
+                <li>
+                  <b>C. Yue</b>, T. Dinh, Z. Xie, M. Zhang, G. Chen and B. C.
+                  Ooi. GlassDB: An Efficient Verifiable Ledger Database System
+                  Through Transparency. VLDB, 2023.
+                </li>
+                <li>
+                  <b>C. Yue</b>, M. Zhang, C. Zhu, G. Chen, D. Loghin and B. C.
+                  Ooi. VeriBench: Analyzing the Performance of Database Systems
+                  with Verifiability. VLDB, 2023.
+                </li>
+                <li>
+                  X. Yang, Ruide Zhang, <b>C. Yue</b>, Y. Liu, B. C. Ooi, Q.
+                  Gao, Y. Zhang and H. Yang. VeDB: A Software and Hardware
+                  Enabled Trusted Relational Database. SIGMOD, 2023.
+                </li>
+                <li>
+                  H. Gao, <b>C. Yue</b>, T. Dinh, Z. Huang, B. C. Ooi. Enabling
+                  Secure and Efficient Data Analytics Pipeline Evolution with
+                  Trusted Execution Environment. VLDB, 2023.
+                </li>
+                <li>
+                  <b>C. Yue</b>, Z. Xie, M. Zhang, G. Chen, B. C. Ooi, S. Wang,
+                  and X. Xiao. Analysis of Indexing Structures for Immutable
+                  Data. SIGMOD, 2020.
+                </li>
+                <li>
+                  M. Zhang, Z. Xie, <b>C. Yue</b>, and Z. Zhong. Spitz: A
+                  Verifiable Database System. VLDB, 2020
+                </li>
+                <li>
+                  Z. Xie, H. Ying, <b>C. Yue</b>, M. Zhang, G. Chen and B. C.
+                  Ooi. Cool: a COhort OnLine analytical processing system. ICDE,
+                  2020.
+                </li>
+              </ul>
+            </div>
+
+            <div class="r-sec">
+              <div class="r-title">Awards</div>
+              <ul class="summary">
+                <li>
+                  International Innovation Award, Enterprise Asia, 2024
+                </li>
+                <li>
+                  NUS Research Scholarship, National University of Singapore,
+                  2018-2023
+                </li>
+                <li>
+                  NUS Graduate Research Innovation Programme (GRIP) Pre-seed
+                  Funding, National University of Singapore, 2024
+                </li>
+              </ul>
+            </div>
+
+            <div class="r-sec">
+              <div class="r-title">SKILLS</div>
+              <ul class="summary">
+                <li>
+                  Language Proficiency: English (Full Professional), Mandarin (Native)
+                </li>
+                <li>
+                  Programming Skills: C/C++, Python, Java, SQL, NoSQL, NodeJS, React, JavaScript, HTML
+                </li>
+                <li>
+                  Engineering: Linux, Docker/Kubernetes, cloud deployment (AWS/Alibaba Cloud), performance profiling & benchmarking
+                </li>
+              </ul>
+            </div>
+
+          </div>
+          <!-- grid -->
+        </div>
+        <!-- inner -->
+      </div>
+      <!-- page -->
+    </div>
+    <!-- wrap -->
+  </body>
+</html>
